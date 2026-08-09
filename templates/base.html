@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}IAS - Client Satisfaction Evaluation and Management System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>IAS - Client Satisfaction Evaluation and Management System</h1>
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="logout">Logout</button>
+        </form>
+    </div>
+
+    <div class="navigation">
+        <a href="{{ url_for('questions') }}" class="{% if request.endpoint == 'questions' %}active{% endif %}">Questions</a>
+        <a href="{{ url_for('summary') }}" class="{% if request.endpoint == 'summary' %}active{% endif %}">Responses</a>
+        <a href="{{ url_for('individual') }}" class="{% if request.endpoint == 'individual' %}active{% endif %}">Individual</a>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

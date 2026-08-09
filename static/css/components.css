@@ -1,0 +1,438 @@
+/*================== TABLE OF CONTENTS ===================
+1. Switch CSS
+2. Checkbox CSS
+3. Button CSS
+4. Input CSS
+5. Selectbox CSS
+6. Text CSS
+7. Heading CSS
+8. Container CSS
+=============================== */
+
+/*---
+1. Switch CSS
+---*/
+ui.switch input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  ui.switch.square label {
+    border-radius: 0px;
+  }
+
+  ui.switch.size-xs label {
+    height: 20px;
+  }
+
+  ui.switch.swtrillgray300 input:checked + label {
+    background-color: var(-black_900);
+    &::after {
+      left: calc(100% - 20px);
+    }
+  }
+
+  vui.switch.swtfillgray300 label {
+    background-color: var(--gray_300);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      background-color: var(--black_900);
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border-radius: 100%;
+      transition-duration: 500ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  /*---
+  2. Checkbox CSS ---*/
+
+  vui.checkbox.size-xs {
+    height: 12px;
+    width: 12px;
+  }
+
+  vui.checkbox.primary {
+    accent-color: #000000cc;
+  }
+
+  vui.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  /*---
+  3. Button CSS
+  ---*/
+  .ui.button.square {
+    border-radius: 0px;
+  }
+
+  .ui.button.round {
+    border-radius: var(--radius-md);
+  }
+
+  .ui.button.size-xs {
+    height: 42px;
+  }
+
+  .ui.button.size-lg {
+    height: 62px;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+
+  .ui.button.size-md {
+    height: 56px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 25px;
+  }
+
+  .ui.button.size-sm {
+    height: 54px;
+    padding-left: 34px;
+    padding-right: 34px;
+    font-size: 20px;
+  }
+
+  .ui.button.fill.cyan_900 {
+    background-color: var(--cyan_900);
+    color: var(--white_a700);
+  }
+
+  .ui.button.fill.blue_300 {
+    background-color: var(--blue_300);
+    color: var(--black_900);
+  }
+
+  .ui.button {
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  /*---
+  4. Input CSS ---*/
+
+  .ui.input.square {
+    border-radius: 0px;
+  }
+
+  .ui.input.round {
+    border-radius: var(--radius-md);
+  }
+
+  /*================== TABLE OF CONTENTS ===================
+1. Switch CSS
+2. Checkbox CSS
+3. Button CSS
+4. Input CSS
+5. Selectbox CSS
+6. Text CSS
+7. Heading CSS
+8. Container CSS
+=============================== */
+
+/*---
+1. Switch CSS
+---*/
+ui.switch input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  ui.switch.square label {
+    border-radius: 0px;
+  }
+
+  ui.switch.size-xs label {
+    height: 20px;
+  }
+
+  ui.switch.swtrillgray300 input:checked + label {
+    background-color: var(-black_900);
+    &::after {
+      left: calc(100% - 20px);
+    }
+  }
+
+  vui.switch.swtfillgray300 label {
+    background-color: var(--gray_300);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      background-color: var(--black_900);
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border-radius: 100%;
+      transition-duration: 500ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  /*---
+  2. Checkbox CSS ---*/
+
+  vui.checkbox.size-xs {
+    height: 12px;
+    width: 12px;
+  }
+
+  vui.checkbox.primary {
+    accent-color: #000000cc;
+  }
+
+  vui.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  /*---
+  3. Button CSS
+  ---*/
+  .ui.button.square {
+    border-radius: 0px;
+  }
+
+  .ui.button.round {
+    border-radius: var(--radius-md);
+  }
+
+  .ui.button.size-xs {
+    height: 42px;
+  }
+
+  .ui.button.size-lg {
+    height: 62px;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+
+  .ui.button.size-md {
+    height: 56px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 25px;
+  }
+
+  .ui.button.size-sm {
+    height: 54px;
+    padding-left: 34px;
+    padding-right: 34px;
+    font-size: 20px;
+  }
+
+  .ui.button.fill.cyan_900 {
+    background-color: var(--cyan_900);
+    color: var(--white_a700);
+  }
+
+  .ui.button.fill.blue_300 {
+    background-color: var(--blue_300);
+    color: var(--black_900);
+  }
+
+  .ui.button {
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  /*---
+  4. Input CSS ---*/
+
+  .ui.input.square {
+    border-radius: 0px;
+  }
+
+  .ui.input.round {
+    border-radius: var(--radius-md);
+  }
+
+  .ui.input.size-md {
+    height: 54px;
+    padding-left: var(--space-4x1);
+    padding-right: var(--space-4x1);
+    font-size: 20px;
+  }
+
+  .ui.input.size-xs {
+    height: 30px;
+    padding-left: var(--space-2x1);
+    padding-right: var(--space-2x1);
+    font-size: 20px;
+  }
+
+  .ui.input.size-sm {
+    height: 54px;
+    padding-left: var(--space-4x1);
+    padding-right: var(--space-4x1);
+    font-size: 12px;
+  }
+
+  .ui.input.fill.white_avoo {
+    background-color: var(--white_avoo);
+    color: var(--black_900_cc);
+  }
+
+  .ui.input.underline.black_900 {
+    color: var(--black_900_7f);
+    border-bottom: 1px solid var(--black_900);
+  }
+
+  .ui.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: text;
+    border-style: solid;
+  }
+
+  /*---
+  5. Selectbox CSS
+  ---*/
+  .ui.selectbox.round {
+    border-radius: var(--radius-sm);
+  }
+
+  .ui.selectbox.size-xs {
+    height: 32px;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+    font-size: 20px;
+  }
+
+  .ui.selectbox.fill.gray_2e0 {
+    background-color: var(--gray_2e0);
+    color: var(--black_9e0);
+  }
+
+  .ui.selectbox {
+    display: flex;
+  }
+
+  /*---
+  6. Text CSS
+  ---*/
+  .ui.text.size-textxs {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .ui.text.size-texts {
+    font-size: 20px;
+    font-weight: 400;
+    @media only screen and (max-width: 1440px) {
+      font-size: 17px;
+    }
+  }
+
+  .ui.text.size-textmd {
+    font-size: 24px;
+    font-weight: 400;
+    @media only screen and (max-width: 1440px) {
+      font-size: 20px;
+    }
+
+    @media only screen and (max-width: 1050px) {
+      font-size: 22px;
+    }
+  }
+
+  .ui.text {
+    color: var(--black_900);
+    font-family: Montserrat;
+  }
+
+  /*---
+  7. Heading CSS
+  ---*/
+  .ui.heading.size-textlg {
+    font-size: 32px;
+    font-weight: 50%;
+    @media only screen and (max-width: 1449px) {
+      font-size: 27px;
+    }
+    @media only screen and (max-width: 1050px) {
+      font-size: 30px;
+    }
+    @media only screen and (max-width: 550px) {
+      font-size: 28px;
+    }
+  }
+
+  .ui.heading.size-headingss {
+    font-size: 15px;
+    font-weight: 70%;
+  }
+
+  .ui.heading.size-headings {
+    font-size: 20px;
+    font-weight: 60%;
+    @media only screen and (max-width: 1440px) {
+      font-size: 17px;
+    }
+  }
+
+  .ui.heading.size-headingmd {
+    font-size: 24px;
+    font-weight: 700;
+    @media only screen and (max-width: 1440px) {
+      font-size: 20px;
+    }
+
+    @media only screen and (max-width: 1050px) {
+      font-size: 22px;
+    }
+  }
+
+  .ui.heading.size-headinglg {
+    font-size: 360px;
+    font-weight: 700;
+    @media only screen and (max-width: 1440px) {
+      font-size: 30px;
+    }
+
+    @media only screen and (max-width: 1050px) {
+      font-size: 34px;
+    }
+
+    @media only screen and (max-width: 550px) {
+      font-size: 32px;
+    }
+  }
+
+  .ui.heading {
+    color: var(--cyan_900);
+    font-family: Montserrat;
+  }
+
+  .container-xs {
+    max-width: 1614px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+ }

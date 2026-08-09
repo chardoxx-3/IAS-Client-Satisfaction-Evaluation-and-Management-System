@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Bitter;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        .register {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .columniasclient {
+            background-color: #0D4D74;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        .iasclient, .logintoyour {
+            text-align: left;
+            align-self: left;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .columnusername {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Styling for input fields */
+        .input-group {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+        .input-group span {
+            padding: 10px;
+            background-color: #ddd;
+            color: #555;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: white;
+        }
+        .login-link {
+            text-align: left;
+            font-size: 14px;
+            color: #C2E0FF;
+            margin-top: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #64AEDC;
+            color: white;
+            font-family: Montserrat;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1E5CA8;
+        }
+        .columnsavedwall {
+            width: 60%;
+            background: url('static/images/cpsc.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Flexbox for First & Last Name in Same Row */
+        .name-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+        .name-row .input-group {
+            width: 50%;
+        }
+
+        /* Responsive: Stack fields on small screens */
+        @media (max-width: 600px) {
+            .name-row {
+                flex-direction: column;
+            }
+            .name-row .input-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register">
+        <div class="columniasclient">
+            <h1 class="iasclient">IAS - Client Satisfaction Evaluation and Management System</h1>
+            <p class="logintoyour">Create a new account</p>
+            <form class="columnusername" method="POST" action="{{ url_for('register') }}">
+
+                <!-- First Name & Last Name in the same row -->
+                <div class="name-row">
+                    <div class="input-group">
+                        <span><i class="bi bi-person"></i></span>
+                        <input id="f_name" name="f_name" placeholder="First Name" type="text" required />
+                    </div>
+                    <div class="input-group">
+                        <span><i class="bi bi-person"></i></span>
+                        <input id="l_name" name="l_name" placeholder="Last Name" type="text" required />
+                    </div>
+                </div>
+
+                <label for="dob">Date of Birth</label>
+                <div class="input-group">
+                    <span><i class="bi bi-calendar"></i></span>
+                    <input id="dob" name="dob" placeholder="Date of Birth" type="date" required/>
+                </div>
+
+                <label for="address">Address</label>
+                <div class="input-group">
+                    <span><i class="bi bi-house"></i></span>
+                    <input id="address" name="address" placeholder="Address" type="text" required/>
+                </div>
+
+                <label for="email">Email</label>
+                <div class="input-group">
+                    <span><i class="bi bi-envelope"></i></span>
+                    <input id="email" name="email" placeholder="Email" type="email" required />
+                </div>
+
+                <label for="phone_number">Phone Number</label>
+                <div class="input-group">
+                    <span><i class="bi bi-telephone"></i></span>
+                    <input id="phone_number" name="phone_number" placeholder="Phone Number" type="text" required/>
+                </div>
+
+
+                <label for="userName">Username</label>
+                <div class="input-group">
+                    <span><i class="bi bi-person"></i></span>
+                    <input id="userName" name="userName" placeholder="Username" type="text" required />
+                </div>
+
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <span><i class="bi bi-lock"></i></span>
+                    <input id="password" name="password" placeholder="Password" type="password" required />
+                </div>
+
+                <button type="submit">Register</button>
+                <a href="{{ url_for('login') }}" class="login-link">Already have an account? Login</a>
+            </form>
+        </div>
+        <div class="columnsavedwall"></div>
+    </div>
+</body>
+</html>

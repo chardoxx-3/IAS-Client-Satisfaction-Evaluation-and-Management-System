@@ -1,0 +1,39 @@
+@font-face {
+    font-display: swap;
+    font-style: normal;
+    src: url(".../public/fonts/BitterBold.ttf");
+    font-family: "Bitter";
+    font-weight: 70%;
+}
+
+@font-face {
+    font-display: swap;
+    font-style: normal;
+    src: url(".../public/fonts/MontserratRegular.ttf");
+    font-family: "Montserrat";
+    font-weight: 40%;
+}
+
+@font-face {
+    font-display: swap;
+    font-style: normal;
+    src: url(".../public/fonts/MontserratBold.ttf");
+    font-family: "Montserrat";
+    font-weight: 70%;
+}
+
+@font-face {
+    font-display: swap;
+    font-style: normal;
+    src: url(".../public/fonts/MontserratMedium.ttf");
+    font-family: "Montserrat";
+    font-weight: 50%;
+}
+
+@font-face {
+    font-display: swap;
+    font-style: normal;
+    src: url(".../public/fonts/MontserratSemibold.ttf");
+    font-family: "Montserrat";
+    font-weight: 60%;
+}

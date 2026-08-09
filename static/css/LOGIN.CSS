@@ -1,0 +1,189 @@
+/*================================== TABLE OF CONTENTS =================
+  1. Common CSS
+  2. Page CSS
+========================== */
+
+/*---
+  |  1. Common CSS
+---*/
+.vector {
+    height: 18px;
+    width: 16px;
+    object-fit: contain;
+  }
+
+  /*---
+    |  2. Page CSS
+  ---*/
+  .login {
+    gap: 17px;
+    background-color: var(--cyan_900);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    @media only screen and (max-width: 1050px) {
+      flex-direction: column;
+    }
+  }
+
+  .columniasclient {
+    margin-top: 244px;
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @media only screen and (max-width: 1050px) {
+      width: 100%;
+      padding-left: var(--space-4x1);
+      padding-right: var(--space-4x1);
+      margin-top: 0px;
+    }
+  }
+
+  .row {
+    gap: var(--space-lg);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
+
+  .iasclient {
+    color: var(--white_a700) !important;
+    margin-top: 28px;
+    font-family: Bitter !important;
+    width: 100%;
+    line-height: 43px;
+    @media only screen and (max-width: 1050px) {
+      font-size: 30px;
+    }
+    @media only screen and (max-width: 550px) {
+      font-size: 28px;
+    }
+  }
+
+  .logintoyour {
+    color: var(--white_a700) !important;
+    margin-top: 4px;
+  }
+
+  .columnusername {
+    margin-top: 52px;
+    margin-right: 18px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @media only screen and (max-width: 1050px) {
+      margin-right: 0px;
+    }
+  }
+
+  .username {
+    color: var(--black_900_cc) !important;
+    padding-left: var(--space-4xl);
+    padding-right: var(--space-4xl);
+    font-size: 12px;
+    gap: var(--space-lg);
+    border-color: var(--black_900_cc);
+    border-width: 1.5px;
+    background-color: var(--white_a700) !important;
+    align-self: stretch;
+    height: 54px;
+    border-radius: 20px !important;
+  }
+
+  .dhi-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+  }
+
+  .password {
+    color: var(--black_900_cc) !important;
+    margin-top: 28px;
+    padding-left: var(--space-4x1);
+    padding-right: var(--space-4x1);
+    font-size: 12px;
+    gap: var(--space-lg);
+    border-color: var(--black_900_cc);
+    border-width: 1.5px;
+    background-color: var(--white_a700) !important;
+    align-self: stretch;
+    height: 54px;
+    border-radius: 20px !important;
+  }
+
+  .dhi-group-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 18px;
+  }
+
+  .dhi-group-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 14px;
+  }
+
+  .forgotpassword-link {
+    margin-top: 22px;
+    margin-right: 6px;
+    @media only screen and (max-width: 1050px) {
+      margin-right: 0px;
+    }
+  }
+
+  .forgotpassword {
+    color: var(--white_a700_cc) !important;
+  }
+
+  .login-1 {
+    color: var(--black_900) !important;
+    margin-top: 36px;
+    padding-left: 34px;
+    padding-right: 34px;
+    font-size: 20px;
+    font-weight: 70%;
+    background-color: var(--blue_300) !important;
+    align-self: stretch;
+    height: 54px;
+    border-radius: 20px !important;
+    @media only screen and (max-width: 1440px) {
+      font-size: 17px;
+    }
+    @media only screen and (max-width: 550px) {
+      padding-left: var(--space-3x1);
+      padding-right: var(--space-3x1);
+    }
+  }
+
+  .columnsavedwall {
+    align-self: center;
+    width: 60%;
+    @media only screen and (max-width: 1050px) {
+      width: 100%;
+      padding-left: var(--space-4x1);
+      padding-right: var(--space-4x1);
+    }
+  }
+
+  .savedwallpaper {
+    height: 1116px;
+    margin-left: 16px;
+    width: 100%;
+    object-fit: cover;
+    @media only screen and (max-width: 1440px) {
+      height: auto;
+    }
+    @media only screen and (max-width: 1050px) {
+      height: auto;
+      margin-left: 0px;
+    }
+  }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Bitter;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        .login {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .columniasclient {
+            background-color: #0D4D74;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        .iasclient, .logintoyour {
+            text-align: left;
+            align-self: left;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .columnusername {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        label {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+        .input-group span {
+            padding: 10px;
+            background-color: #ddd;
+            color: #555;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        .forgotpassword-link {
+            text-align: right;
+            width: 100%;
+            font-size: 14px;
+            color: #C2E0FF;
+            margin-bottom: 10px;
+        }
+        .register-link {
+            text-align: left;
+            font-size: 14px;
+            color: #C2E0FF;
+            margin-top: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #64AEDC;
+            color: white;
+            font-family: Montserrat;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1E5CA8;
+        }
+        .columnsavedwall {
+            width: 60%;
+            background: url('static/images/cpsc.jpg') no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="columniasclient">
+            <h1 class="iasclient">IAS - Client Satisfaction Evaluation and Management System</h1>
+            <p class="logintoyour">Login to your account</p>
+            <form class="columnusername" method="POST" action="{{ url_for('login') }}">
+                <label>
+                    <div class="input-group">
+                        <span><i class="bi bi-person"></i></span>
+                        <input name="userName" placeholder="Username" type="text" required/>
+                    </div>
+                </label>
+                <label>
+                    <div class="input-group">
+                        <span><i class="bi bi-lock"></i></span>
+                        <input name="password" placeholder="Password" type="password" required/>
+                    </div>
+                </label>
+                <a href="#" class="forgotpassword-link">Forgot password?</a>
+                <button type="submit">Login</button>
+                <a href="{{ url_for('register') }}" class="register-link">Register?</a>
+            </form>
+        </div>
+        <div class="columnsavedwall"></div>
+    </div>
+</body>
+</html>

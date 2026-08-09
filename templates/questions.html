@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Survey Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d4eaf7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #0d4f79;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .logout {
+            background-color: #14689a;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px 0;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: transparent;
+            outline: none;
+            font-size: 16px;
+            resize: none;
+            overflow: hidden;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom: 2px solid #0d4f79;
+        }
+
+        .form-group input[type="radio"],
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .add-question {
+            margin-bottom: 20px;
+        }
+
+        .save-button {
+            text-align: right;
+        }
+
+        .question-options {
+            margin-top: 10px;
+        }
+
+        .question-options input {
+            margin-right: 10px;
+        }
+
+        .option-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .option-container input[type="text"] {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .option-container button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .card-actions button {
+            background-color: #14689a;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Switch Toggler Styles */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #0d4f79;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>IAS - Client Satisfaction Evaluation and Management System</h1>
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="logout">Logout</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Create Survey Form</h2>
+        <form action="{{ url_for('questions') }}" method="POST" id="survey-form">
+            <!-- Title and Description -->
+            <div class="card">
+                <div class="form-group">
+                    <label for="form_title">Form Title:</label>
+                    <input type="text" id="form_title" name="form_title" placeholder="Enter form title" required>
+                </div>
+                <div class="form-group">
+                    <label for="form_description">Form Description:</label>
+                    <textarea id="form_description" name="form_description" placeholder="Enter form description" required></textarea>
+                </div>
+            </div>
+
+            <!-- Questions Section -->
+            <div id="questions-list">
+                <!-- Default Question Card -->
+                <div class="card">
+                    <div class="card-actions">
+                        <button type="button" onclick="copyQuestion(0)">Copy</button>
+                        <button type="button" onclick="deleteQuestion(0)">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="question_text_0">Question Text:</label>
+                        <textarea id="question_text_0" name="question_text_0" placeholder="Enter your question" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="question_type_0">Question Type:</label>
+                        <select id="question_type_0" name="question_type_0" onchange="updateAnswerField(0)" required>
+                            <option value="short_answer">Short Answer</option>
+                            <option value="paragraph">Paragraph</option>
+                            <option value="multiple_choice">Multiple Choice</option>
+                            <option value="checkboxes">Checkboxes</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="answer-field-0">
+                        <!-- Answer field will be dynamically updated here -->
+                    </div>
+                    <div class="form-group">
+                        <label for="is_required_0">Is Required:</label>
+                        <label class="switch">
+                            <input type="checkbox" id="is_required_0" name="is_required_0" value="true">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Question Button -->
+            <div class="add-question">
+                <button type="button" id="add-question" class="btn btn-secondary">Add Another Question</button>
+            </div>
+
+            <!-- Save Button -->
+            <div class="save-button">
+                <button type="submit" class="btn btn-primary">Save Form</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let questionIndex = 1;
+
+        // Function to update the answer field based on the selected question type
+        function updateAnswerField(questionId) {
+            const questionType = document.getElementById(`question_type_${questionId}`).value;
+            const answerField = document.getElementById(`answer-field-${questionId}`);
+
+            let html = '';
+            switch (questionType) {
+                case 'short_answer':
+                    html = `<input type="text" name="answer_${questionId}" placeholder="Enter your answer">`;
+                    break;
+                case 'paragraph':
+                    html = `<textarea name="answer_${questionId}" placeholder="Enter your response"></textarea>`;
+                    break;
+                case 'multiple_choice':
+                    html = `
+                        <div id="options-container-${questionId}">
+                            <div class="option-container">
+                                <input type="radio" name="answer_${questionId}" value="Option 1">
+                                <input type="text" name="option_${questionId}_0" placeholder="Option 1">
+                                <button type="button" onclick="removeOption(${questionId}, 0)">Remove</button>
+                            </div>
+                            <div class="option-container">
+                                <input type="radio" name="answer_${questionId}" value="Option 2">
+                                <input type="text" name="option_${questionId}_1" placeholder="Option 2">
+                                <button type="button" onclick="removeOption(${questionId}, 1)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="addOption(${questionId}, 'radio')">Add Option</button>
+                    `;
+                    break;
+                case 'checkboxes':
+                    html = `
+                        <div id="options-container-${questionId}">
+                            <div class="option-container">
+                                <input type="checkbox" name="answer_${questionId}" value="Check 1">
+                                <input type="text" name="option_${questionId}_0" placeholder="Option 1">
+                                <button type="button" onclick="removeOption(${questionId}, 0)">Remove</button>
+                            </div>
+                            <div class="option-container">
+                                <input type="checkbox" name="answer_${questionId}" value="Check 2">
+                                <input type="text" name="option_${questionId}_1" placeholder="Option 2">
+                                <button type="button" onclick="removeOption(${questionId}, 1)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="addOption(${questionId}, 'checkbox')">Add Option</button>
+                    `;
+                    break;
+            }
+            answerField.innerHTML = html;
+        }
+
+        // Function to add a new option for multiple choice or checkboxes
+        function addOption(questionId, type) {
+            const optionsContainer = document.getElementById(`options-container-${questionId}`);
+            const optionCount = optionsContainer.querySelectorAll('.option-container').length;
+
+            const newOption = document.createElement('div');
+            newOption.className = 'option-container';
+            newOption.innerHTML = `
+                <input type="${type === 'radio' ? 'radio' : 'checkbox'}" name="answer_${questionId}" value="Option ${optionCount + 1}">
+                <input type="text" name="option_${questionId}_${optionCount}" placeholder="Option ${optionCount + 1}">
+                <button type="button" onclick="removeOption(${questionId}, ${optionCount})">Remove</button>
+            `;
+
+            optionsContainer.appendChild(newOption);
+        }
+
+        // Function to remove an option for multiple choice or checkboxes
+        function removeOption(questionId, optionIndex) {
+            const optionsContainer = document.getElementById(`options-container-${questionId}`);
+            const optionToRemove = optionsContainer.querySelectorAll('.option-container')[optionIndex];
+            if (optionToRemove) {
+                optionsContainer.removeChild(optionToRemove);
+            }
+        }
+
+        // Function to copy a question box
+        function copyQuestion(questionId) {
+            const questionsList = document.getElementById('questions-list');
+            const questionCard = document.getElementById(`question-card-${questionId}`).cloneNode(true);
+
+            // Update IDs and names to avoid conflicts
+            const newQuestionId = questionIndex++;
+            questionCard.id = `question-card-${newQuestionId}`;
+            questionCard.querySelectorAll('input, textarea, select').forEach(element => {
+                if (element.name) {
+                    element.name = element.name.replace(/\d+/, newQuestionId);
+                }
+                if (element.id) {
+                    element.id = element.id.replace(/\d+/, newQuestionId);
+                }
+            });
+
+            // Add the new question card to the list
+            questionsList.appendChild(questionCard);
+
+            // Update the answer field for the new question
+            updateAnswerField(newQuestionId);
+        }
+
+        // Function to delete a question box
+        function deleteQuestion(questionId) {
+            const questionCard = document.getElementById(`question-card-${questionId}`);
+            if (questionCard) {
+                questionCard.remove();
+            }
+        }
+
+        // Function to add a new question card
+        document.getElementById('add-question').addEventListener('click', function() {
+            const questionsList = document.getElementById('questions-list');
+
+            const questionCard = document.createElement('div');
+            questionCard.className = 'card';
+            questionCard.id = `question-card-${questionIndex}`;
+
+            questionCard.innerHTML = `
+                <div class="card-actions">
+                    <button type="button" onclick="copyQuestion(${questionIndex})">Copy</button>
+                    <button type="button" onclick="deleteQuestion(${questionIndex})">Delete</button>
+                </div>
+                <div class="form-group">
+                    <label for="question_text_${questionIndex}">Question Text:</label>
+                    <textarea id="question_text_${questionIndex}" name="question_text_${questionIndex}" placeholder="Enter your question" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_type_${questionIndex}">Question Type:</label>
+                    <select id="question_type_${questionIndex}" name="question_type_${questionIndex}" onchange="updateAnswerField(${questionIndex})" required>
+                        <option value="short_answer">Short Answer</option>
+                        <option value="paragraph">Paragraph</option>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="checkboxes">Checkboxes</option>
+                    </select>
+                </div>
+                <div class="form-group" id="answer-field-${questionIndex}">
+                    <!-- Answer field will be dynamically updated here -->
+                </div>
+                <div class="form-group">
+                    <label for="is_required_${questionIndex}">Is Required:</label>
+                    <label class="switch">
+                        <input type="checkbox" id="is_required_${questionIndex}" name="is_required_${questionIndex}" value="true">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            `;
+
+            questionsList.appendChild(questionCard);
+            updateAnswerField(questionIndex); // Initialize the answer field for the new question
+            questionIndex++;
+        });
+
+        // Initialize the answer field for the first question
+        updateAnswerField(0);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
