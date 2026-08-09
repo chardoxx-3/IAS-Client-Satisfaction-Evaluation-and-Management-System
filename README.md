@@ -284,8 +284,6 @@ pip install -r requirements.txt
 
 ## 📸 System Preview
 
-## 📸 System Preview
-
 ### Login
 ![Login](screenshots/login.png)
 
