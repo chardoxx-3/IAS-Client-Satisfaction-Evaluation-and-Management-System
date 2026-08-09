@@ -284,17 +284,10 @@ pip install -r requirements.txt
 
 ## 📸 System Preview
 
+## 📸 System Preview
+
 ### Login
-Login to access admin features with secure authentication.
-
-### Dashboard
-Overview of all forms, clients, and survey metrics.
-
-### Form Builder
-Create and customize survey forms with multiple question types.
-
-### Analytics
-View detailed feedback analysis and client satisfaction metrics.
+![Login](screenshots/login.png)
 
 ## 📝 Notes
 
